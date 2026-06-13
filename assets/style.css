@@ -121,25 +121,6 @@ body{
 }
 .btn-outline2:hover{border-color:rgba(255,255,255,.4); background:rgba(255,255,255,.08);}
 
-/* =================== TICKER =================== */
-.ticker-section{
-  background:rgba(255,255,255,.025); border-top:1px solid var(--border);
-  border-bottom:1px solid var(--border); overflow:hidden; padding:10px 0;
-}
-.ticker-wrap{
-  display:flex; gap:40px;
-  animation:scrollx 32s linear infinite;
-  width:max-content;
-}
-.ticker-wrap:hover{animation-play-state:paused;}
-@keyframes scrollx{from{transform:translateX(0);}to{transform:translateX(-50%);}}
-.tick-item{
-  display:flex; align-items:center; gap:10px;
-  white-space:nowrap; font-size:13px; color:rgba(255,255,255,.55);
-}
-.tick-item strong{color:#fff;}
-.tick-item .sal{color:#34d399; font-weight:600;}
-.tick-dot{width:5px;height:5px;background:#3b82f6;border-radius:50%;}
 
 /* =================== STATS =================== */
 .stats-sec{padding:64px 0; background:var(--dark2);}
@@ -328,7 +309,7 @@ footer{background:#060a14; border-top:1px solid rgba(255,255,255,.06); padding:4
 .auth-link a:hover{text-decoration:underline;}
 .err-box{background:rgba(239,68,68,.09); border:1px solid rgba(239,68,68,.28); border-radius:8px; padding:10px 14px; font-size:13px; color:#fca5a5; margin-bottom:14px;}
 .ok-box{background:rgba(16,185,129,.09); border:1px solid rgba(16,185,129,.28); border-radius:8px; padding:10px 14px; font-size:13px; color:#6ee7b7; margin-bottom:14px;}
-.demo-box{background:rgba(59,130,246,.07); border:1px solid rgba(59,130,246,.18); border-radius:8px; padding:10px 14px; font-size:12px; color:#93c5fd; margin-top:12px;}
+/* .demo-box{background:rgba(59,130,246,.07); border:1px solid rgba(59,130,246,.18); border-radius:8px; padding:10px 14px; font-size:12px; color:#93c5fd; margin-top:12px;} */
 
 /* =================== DASHBOARD =================== */
 .dash-wrap{display:flex; min-height:100vh; padding-top:60px;}

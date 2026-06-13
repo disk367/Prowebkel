@@ -88,11 +88,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
       </button>
     </form>
 
-    <div class="demo-box">
+    <!-- <div class="demo-box">
       <strong>Demo:</strong><br>
       Admin: admin@zenirwork.id / password<br>
       User:&nbsp;&nbsp; daffa@zenirwork.id / password
-    </div>
+    </div> -->
 
     <div class="auth-link">
       Belum punya akun? <a href="register.php">Daftar gratis</a>

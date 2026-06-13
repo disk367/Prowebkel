@@ -112,24 +112,6 @@ $qCats = $conn->query("SELECT category, COUNT(*) as total FROM jobs WHERE is_act
   </div>
 </section>
 
-<!-- ===== TICKER ===== -->
-<!-- <?php if(!empty($ticker_data)): ?>
-<div class="ticker-section">
-  <div class="ticker-wrap">
-    <?php
-      $double = array_merge($ticker_data, $ticker_data);
-      foreach($double as $t): ?>
-    <span class="tick-item">
-      <span class="tick-dot"></span>
-      <strong><?= e($t['title']) ?></strong>
-      <span style="color:rgba(255,255,255,.2)">·</span>
-      <?= e($t['company']) ?>
-      <span class="sal"><?= gajiRange($t['salary_min'], $t['salary_max']) ?></span>
-    </span>
-    <?php endforeach; ?>
-  </div>
-</div>
-<?php endif; ?>  -->
 
 <!-- ===== STATS ===== -->
 <section class="stats-sec" aria-label="Statistik">
@@ -379,13 +361,7 @@ $qTrain = $conn->query("SELECT * FROM trainings ORDER BY created_at DESC LIMIT 4
       <a href="#">Tim Pengembang</a>
       <a href="#">Kebijakan Privasi</a>
     </nav>
-    <!-- <div class="ft-col">
-       <h5>Teknologi</h5>
-      <a href="#">PHP 8 + MySQL</a>
-      <a href="#">Tailwind CSS</a>
-      <a href="#">Bootstrap Icons</a>
-      <a href="#">AOS Library</a>
-    </div> -->
+    
   </div>
   <div class="footer-bottom">
       Copyright © <?= date('Y') ?> Tim PWEB-1C
