@@ -2,20 +2,20 @@
 session_start();
 require_once 'config/db.php';
 
-// ambil data statistik buat hero
+
 $jml_job  = $conn->query("SELECT COUNT(*) FROM jobs WHERE is_active=1")->fetch_row()[0];
 $jml_user = $conn->query("SELECT COUNT(*) FROM users WHERE role='jobseeker'")->fetch_row()[0];
 $jml_app  = $conn->query("SELECT COUNT(*) FROM applications")->fetch_row()[0];
 $jml_comp = $conn->query("SELECT COUNT(DISTINCT company) FROM jobs")->fetch_row()[0];
 
-// ticker - ambil semua lowongan aktif
+
 $res_ticker = $conn->query("SELECT title, company, salary_min, salary_max FROM jobs WHERE is_active=1 ORDER BY created_at DESC");
 $ticker_data = $res_ticker->fetch_all(MYSQLI_ASSOC);
 
-// 6 lowongan terbaru untuk kartu
+
 $qJobs = $conn->query("SELECT * FROM jobs WHERE is_active=1 ORDER BY created_at DESC LIMIT 6");
 
-// kategori + jumlah
+
 $qCats = $conn->query("SELECT category, COUNT(*) as total FROM jobs WHERE is_active=1 GROUP BY category ORDER BY total DESC LIMIT 6");
 ?>
 <!DOCTYPE html>
@@ -112,8 +112,8 @@ $qCats = $conn->query("SELECT category, COUNT(*) as total FROM jobs WHERE is_act
   </div>
 </section>
 
-<!-- ===== TICKER 
-<?php if(!empty($ticker_data)): ?>
+<!-- ===== TICKER ===== -->
+<!-- <?php if(!empty($ticker_data)): ?>
 <div class="ticker-section">
   <div class="ticker-wrap">
     <?php
@@ -129,7 +129,7 @@ $qCats = $conn->query("SELECT category, COUNT(*) as total FROM jobs WHERE is_act
     <?php endforeach; ?>
   </div>
 </div>
-<?php endif; ?> ===== -->
+<?php endif; ?>  -->
 
 <!-- ===== STATS ===== -->
 <section class="stats-sec" aria-label="Statistik">
@@ -221,7 +221,7 @@ $qCats = $conn->query("SELECT category, COUNT(*) as total FROM jobs WHERE is_act
 
 <!-- ===== PELATIHAN SKILL ===== -->
 <?php
-// ambil 4 training terbaru buat ditampilkan di landing
+
 $qTrain = $conn->query("SELECT * FROM trainings ORDER BY created_at DESC LIMIT 4");
 ?>
 <section id="pelatihan" class="features-sec" style="background:var(--dark2)" aria-label="Pelatihan Skill">
@@ -363,16 +363,16 @@ $qTrain = $conn->query("SELECT * FROM trainings ORDER BY created_at DESC LIMIT 4
         Zenir<span style="color:#60a5fa">Work</span>
       </a>
       <p>Platform karier digital untuk Gen Z Indonesia. Mendukung SDG 8: Pekerjaan Layak dan Pertumbuhan Ekonomi.</p>
-      <p style="margin-top:8px;font-size:12px;color:rgba(255,255,255,.2)">Tim PWEB-1C © <?= date('Y') ?></p>
+      <p style="margin-top:8px;font-size:12px;color:rgba(255,255,255,.2)"</p>
     </div>
-    <!-- <nav class="ft-col">
+    <nav class="ft-col">
       <h5>Platform</h5>
       <a href="#lowongan">Lowongan</a>
   <a href="#pelatihan">Pelatihan Skill</a>
       <a href="#kategori">Kategori</a>
       <a href="auth/register.php">Daftar</a>
       <a href="auth/login.php">Masuk</a>
-    </nav> -->
+    </nav>
     <nav class="ft-col">
       <h5>Perusahaan</h5>
       <a href="#tentang">Tentang Kami</a>
@@ -387,27 +387,23 @@ $qTrain = $conn->query("SELECT * FROM trainings ORDER BY created_at DESC LIMIT 4
       <a href="#">AOS Library</a>
     </div> -->
   </div>
-  <nav class="footer-bottom">
-      <a href="#lowongan">Lowongan</a>
-      <a href="#pelatihan">Pelatihan Skill</a>
-      <a href="#kategori">Kategori</a>
-      <a href="auth/register.php">Daftar</a>
-      <a href="auth/login.php">Masuk</a>
-  </nav>
+  <div class="footer-bottom">
+      Copyright © <?= date('Y') ?> Tim PWEB-1C
+  </div>
 </footer>
 
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script>
   AOS.init({ once: true, offset: 60, duration: 700 });
 
-  // hamburger mobile
+  
   var hamBtn = document.getElementById('ham-btn');
   var mobMenu = document.getElementById('mob-menu');
   hamBtn.addEventListener('click', function(){
     mobMenu.classList.toggle('open');
   });
 
-  // smooth scroll anchor
+  
   document.querySelectorAll('a[href^="#"]').forEach(function(a){
     a.addEventListener('click', function(e){
       var target = document.querySelector(this.getAttribute('href'));
